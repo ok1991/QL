@@ -5,7 +5,7 @@
  *Date: 2024-06-02
  * cron 0 9,18 * * *  海天美味馆.js         
  * 微信小程序 海天美味馆 ck有效期不清楚   完成签到 抽奖 日常任务  积分换实物
- * 抓域名cmallapi.haday.cn下 Authorization&uuid
+ * 抓域名haitian.pages.dev下 Authorization&uuid
  * export htmwg= Authorization&uuid 多账号换行或者#分隔
  */
 // ============================================================================================================
@@ -93,16 +93,11 @@ async function SignTask(user) {
     //user: 用户参数, 里面存放ck和账户信息啥的. 进阶可以用类(class)的方法的代替, 效率更高
     //养成良好习惯, 每个方法里面都用try catch包起来, 这样出错了也不影响下一个步骤进行
     try {
-        // 获取当前年份和月份
-        const currentDate = new Date();
-        const year = currentDate.getFullYear(); // 获取年份
-        const month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); // 获取月份并确保两位数
-
         let urlObject = {
             method: 'post',
-            url: 'https://cmallapi.haday.cn/buyer-api/sign/activity/sign',
+            url: 'https://haitian.pages.dev/buyer-api/sign/activity/sign',
             headers: {
-                'Host': 'cmallapi.haday.cn',
+                'Host': 'haitian.pages.dev',
                 'Content-Type': 'application/json',
                 'Authorization': user.Authorization,
                 'Referer': 'https://servicewechat.com/wx7a890ea13f50d7b6/608/page-frame.html',
@@ -110,7 +105,7 @@ async function SignTask(user) {
             },
             //body: `{"isReward":false}`   请求体，get方法没有请求体  httpRequest
             body: JSON.stringify({
-                "activity_code": year + month,
+                "activity_code": "202407",
                 "fill_date": ""
             }),
         };
@@ -139,7 +134,7 @@ async function drawTask(user) {
         let urlObject = {
             method: 'get',
             fn: 'drawTask',
-            url: 'https://cmallapi.haday.cn/buyer-api/lucky/activity/extract?activityCode=jfcj0627',
+            url: 'https://haitian.pages.dev/buyer-api/lucky/activity/extract?activityCode=jfcj0827',
             headers: {
                 'Authorization': user.Authorization,
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 MicroMessenger/7.0.20.1781(0x6700143B) NetType/WIFI MiniProgramEnv/Windows WindowsWechat/WMPF WindowsWechat(0x63090a13) XWEB/9129',
@@ -167,7 +162,7 @@ async function jifenduijihui(user) {
         let urlObject = {
             method: 'get',
             fn: 'jifenduijihui',
-            url: "https://cmallapi.haday.cn/buyer-api/lucky/activity/redeem?activityCode=jfcj0627",
+            url: "https://haitian.pages.dev/buyer-api/lucky/activity/redeem?activityCode=jfcj0827",
             headers: {
                 'Authorization': user.Authorization,
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 MicroMessenger/7.0.20.1781(0x6700143B) NetType/WIFI MiniProgramEnv/Windows WindowsWechat/WMPF WindowsWechat(0x63090a13) XWEB/9129',
@@ -193,7 +188,7 @@ async function lingjihuijihui(user) {
         let urlObject = {
             method: 'put',
             fn: 'lingjihuijihui',
-            url: "https://cmallapi.haday.cn/buyer-api/lucky/task/getLoginOpporturnity/jfcj0627",
+            url: "https://haitian.pages.dev/buyer-api/lucky/task/getLoginOpporturnity/jfcj0827",
             headers: {
                 'Authorization': user.Authorization,
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 MicroMessenger/7.0.20.1781(0x6700143B) NetType/WIFI MiniProgramEnv/Windows WindowsWechat/WMPF WindowsWechat(0x63090a13) XWEB/9129',
@@ -246,7 +241,7 @@ async function jifen(user) {
         let urlObject = {
             method: 'get',
             fn: 'jifen',
-            url: "https://cmallapi.haday.cn/buyer-api/members/points/current",
+            url: "https://haitian.pages.dev/buyer-api/members/points/current",
             headers: {
                 'uuid': user.uuid,
                 'Authorization': user.Authorization,
