@@ -4,3 +4,5 @@
 [FoKit/Scripts](https://github.com/FoKit/Scripts/tree/main?tab=readme-ov-file)
 
 [yang7758258/ohhh_QL-Script](https://github.com/yang7758258/ohhh_QL-Script)
+
+[sudojia/scripts](https://github.com/sudojia/scripts)
